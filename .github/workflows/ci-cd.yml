@@ -17,11 +17,16 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      # Bước 2: Ví dụ thiết lập môi trường (Node.js/Java/Python tùy theo dự án của bạn)
-      # - name: Setup Node.js
-      #   uses: actions/setup-node@v4
-      #   with:
-      #     node-version: 18
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+
+      - name: Install HTML Validator
+        run: npm install -g html-validate
+
+      - name: Validate HTML Files
+        run: html-validate index.html
 
       # Bước 3: Chạy các câu lệnh Build / Test (tương đương build steps trên Jenkins)
       - name: Run build or test

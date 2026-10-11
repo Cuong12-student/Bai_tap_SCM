@@ -3,9 +3,9 @@ name: CI/CD Workflow
 # Kích hoạt pipeline mỗi khi có sự kiện push vào nhánh main (tương đương GitHub hook trigger trên Jenkins)
 on:
   push:
-    branches: ["main"]
+    branches: ["menu"]
   pull_request:
-    branches: ["main"]
+    branches: ["menu"]
 
 jobs:
   build-and-test:

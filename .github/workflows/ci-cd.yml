@@ -1,0 +1,31 @@
+name: CI/CD Workflow
+
+# Kích hoạt pipeline mỗi khi có sự kiện push vào nhánh main (tương đương GitHub hook trigger trên Jenkins)
+on:
+  push:
+    branches: ["main"]
+  pull_request:
+    branches: ["main"]
+
+jobs:
+  build-and-test:
+    # Môi trường chạy (Runner do GitHub cung cấp sẵn)
+    runs-on: ubuntu-latest
+
+    steps:
+      # Bước 1: Checkout mã nguồn (Tương đương stage 'Clone' trong Jenkinsfile)
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # Bước 2: Ví dụ thiết lập môi trường (Node.js/Java/Python tùy theo dự án của bạn)
+      # - name: Setup Node.js
+      #   uses: actions/setup-node@v4
+      #   with:
+      #     node-version: 18
+
+      # Bước 3: Chạy các câu lệnh Build / Test (tương đương build steps trên Jenkins)
+      - name: Run build or test
+        run: |
+          echo "Bắt đầu tiến trình kiểm tra mã nguồn..."
+          echo "Mã nguồn đã được tải về Runner thành công!"
+          # Thay thế bằng các câu lệnh thực tế: npm install, npm test, mvn clean install,...
